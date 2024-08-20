@@ -31,7 +31,7 @@ jobs:
     - run: yarn
     - run: yarn build --mode git-page
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: dist # The folder the action should deploy.
