@@ -19,7 +19,7 @@ const updateSW = registerSW({
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="提示！！" />
+      <HelloWorld msg="有没有提示！！" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
