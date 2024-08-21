@@ -28,7 +28,8 @@ export default defineConfig(({mode})=>{
               type: 'image/png'
             }
           ]
-        }
+        },
+        registerType:'prompt',
       })
     ],
     resolve: {
