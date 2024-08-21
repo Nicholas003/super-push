@@ -27,7 +27,7 @@ const updateSW = registerSW({
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     {{ j }}
     <div class="wrapper">
-      <HelloWorld msg="-再测测试手动触发提示！" />
+      <HelloWorld msg="---再测测试手动触发提示！" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
