@@ -31,7 +31,7 @@ const c = () => {
     {{ j }}
     <button type="button" @click="c">刷新</button>
     <div class="wrapper">
-      <HelloWorld msg="-ffff1122--再测测试手动触发提示！" />
+      <HelloWorld msg="再测测试手动触发提示！" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
