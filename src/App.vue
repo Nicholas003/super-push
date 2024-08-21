@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { registerSW } from 'virtual:pwa-register'
 
+const updateSW = registerSW({
+  onNeedRefresh() {
+    console.log('onNeedRefresh')
+    alert('onNeedRefresh')
+  },
+  onOfflineReady() {
+    alert('onOfflineReady')
+  },
+})
 </script>
 
 <template>
@@ -9,7 +19,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="测试pwa更新！！" />
+      <HelloWorld msg="提示！！" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
