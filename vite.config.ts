@@ -9,7 +9,7 @@ import process from 'node:process'
 // https://vitejs.dev/config/
 export default defineConfig(({mode})=>{
   const env = loadEnv(mode, process.cwd())
-  const basePath = env.VITE_BASE_PATH||'/'
+  const basePath = '/' + (env.VITE_BASE_PATH||'')
   return {
     base:basePath,
     plugins: [
@@ -21,15 +21,20 @@ export default defineConfig(({mode})=>{
           name: 'Vue 3 + Vite',
           short_name: 'Vite + Vue 3',
           description: 'Vite + Vue 3 + Vue Router + TypeScript + Tailwind CSS',
+          theme_color: '#ffffff',
           icons: [
             {
-              src: basePath+'/icon.png',
+              src: basePath+'icon.png',
               sizes: '192x192',
               type: 'image/png'
             }
           ]
         },
         registerType:'prompt',
+        // devOptions: {
+        //   enabled: true
+        //   /* other options */
+        // }
       })
     ],
     resolve: {
