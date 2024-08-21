@@ -7,11 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode})=>{
-
-  const env = loadEnv(mode,'./')
-
   return {
-    base: env.VITE_BASE_PATH || '/',
     plugins: [
       vue(),
       vueJsx(),
