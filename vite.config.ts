@@ -29,8 +29,7 @@ export default defineConfig(({mode})=>{
               type: 'image/png'
             }
           ]
-        },
-        registerType:'prompt',
+        }
         // devOptions: {
         //   enabled: true
         //   /* other options */
