@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW, updateSW } from 'virtual:pwa-register'
 import { ref } from 'vue'
 const j = ref({
   onNeedRefresh: false,
@@ -11,9 +11,7 @@ const j = ref({
 const updateSW = registerSW({
   onNeedRefresh() {
     j.value.onNeedRefresh = true
-    if (confirm('是否刷新')) {
-      window.location.reload()
-    }
+    updateSW()
   },
   onOfflineReady() {
     j.value.onOfflineReady = true
@@ -27,7 +25,7 @@ const updateSW = registerSW({
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     {{ j }}
     <div class="wrapper">
-      <HelloWorld msg="---再测测试手动触发提示！" />
+      <HelloWorld msg="-1122--再测测试手动触发提示！" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
