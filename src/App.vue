@@ -4,27 +4,32 @@ import HelloWorld from './components/HelloWorld.vue'
 import { registerSW } from 'virtual:pwa-register'
 import { ref } from 'vue'
 const j = ref({
-  onNeedRefresh: false,
-  onOfflineReady: false
+  onNeedRefresh: 0,
+  onOfflineReady: 0
 })
 
 const updateSW = registerSW({
   onNeedRefresh() {
-    j.value.onNeedRefresh = true
+    j.value.onNeedRefresh++
     // updateSW()
   },
   onOfflineReady() {
-    j.value.onOfflineReady = true
+    j.value.onOfflineReady++
     // alert('onOfflineReady')
   },
 })
+
+const c = () => {
+  updateSW()
+}
+
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     {{ j }}
-    <button type="button" @click="updateSW">刷新</button>
+    <button type="button" @click="c">刷新</button>
     <div class="wrapper">
       <HelloWorld msg="-ffff1122--再测测试手动触发提示！" />
 
