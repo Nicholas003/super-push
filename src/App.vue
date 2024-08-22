@@ -23,6 +23,10 @@ const c = () => {
   updateSW()
 }
 
+const setTopBar = () => {
+  document.querySelector("meta[name=theme-color]").setAttribute('content', "rgb(12,34,200)")
+}
+
 </script>
 
 <template>
@@ -30,6 +34,7 @@ const c = () => {
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     {{ j.onNeedRefresh }}
     <button type="button" @click="c">刷新</button>
+    <button type="button" @click="setTopBar">修改状态栏</button>
     <div class="wrapper">
       <HelloWorld msg="触发提示！-" />
 
