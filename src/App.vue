@@ -28,7 +28,7 @@ const c = () => {
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    {{ j }}
+    {{ j.onNeedRefresh }}
     <button type="button" @click="c">刷新</button>
     <div class="wrapper">
       <HelloWorld msg="触发提示！-" />
