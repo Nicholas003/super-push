@@ -24,7 +24,7 @@ const c = () => {
 }
 
 const setTopBar = () => {
-  document.querySelector("meta[name=theme-color]").setAttribute('content', "rgb(12,34,200)")
+  document.querySelector("meta[name=theme-color]")?.setAttribute('content', "rgb(12,34,200)")
 }
 
 </script>
