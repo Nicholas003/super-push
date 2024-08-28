@@ -25,13 +25,15 @@ jobs:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
-      env:
-        HTTP_URL: ${{ secrets.HTTP_URL }}
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: yarn
+      env:
+          HTTP_URL: ${{ secrets.HTTP_URL }}
     - run: yarn build-only --mode git-page
+      env:
+          HTTP_URL: ${{ secrets.HTTP_URL }}
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
