@@ -10,6 +10,7 @@ import process from 'node:process'
 export default defineConfig(({mode})=>{
   const env = loadEnv(mode, process.cwd())
   const basePath = '/' + (env.VITE_BASE_PATH||'')
+  console.log(env)
   return {
     base:basePath,
     plugins: [
@@ -29,13 +30,19 @@ export default defineConfig(({mode})=>{
               type: 'image/png'
             }
           ]
-        }
+        },
+        injectRegister:'script',
         // devOptions: {
         //   enabled: true
         //   /* other options */
         // }
       })
     ],
+    define: {
+      'process.env': {
+          HTTP_URL:process.env.HTTP_URL||env.VITE_HTTP_URL
+      },
+  },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))

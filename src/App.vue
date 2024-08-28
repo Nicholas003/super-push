@@ -1,27 +1,29 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import { registerSW } from 'virtual:pwa-register'
-import { ref } from 'vue'
-const j = ref({
-  onNeedRefresh: 0,
-  onOfflineReady: 0
-})
+
 
 const updateSW = registerSW({
   onNeedRefresh() {
-    j.value.onNeedRefresh++
-    // updateSW()
+
   },
   onOfflineReady() {
-    j.value.onOfflineReady++
-    // alert('onOfflineReady')
+
   },
 })
+
 
 const c = () => {
   updateSW()
 }
+
+const login = () => {
+
+  window.location.href = `https://github.com/login/oauth/authorize?client_id=Ov23liWi7ycK7kssllDs&redirect_uri=${window.location.href}`
+
+}
+
+
 
 const setTopBar = () => {
   document.querySelector("meta[name=theme-color]")?.setAttribute('content', "rgb(12,34,200)")
@@ -30,84 +32,7 @@ const setTopBar = () => {
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    {{ j.onNeedRefresh }}
-    <button type="button" @click="c">刷新</button>
-    <button type="button" @click="setTopBar">修改状态栏</button>
-    <div class="wrapper">
-      <HelloWorld msg="触发提示！-" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
   <RouterView />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style scoped></style>
