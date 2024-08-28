@@ -31,7 +31,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: yarn
-    - run: yarn build --mode git-page
+    - run: yarn build-only --mode git-page
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
