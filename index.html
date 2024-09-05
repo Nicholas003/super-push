@@ -1,15 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/super-push/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-    <meta name="theme-color">
-    <script type="module" crossorigin src="/super-push/assets/index-DGROPmT2.js"></script>
-    <link rel="stylesheet" crossorigin href="/super-push/assets/index-BMTRAcdn.css">
-  <link rel="manifest" href="/super-push/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/super-push/registerSW.js"></script></head>
-  <body>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/super-push/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite App</title>
+  <meta name="theme-color">
+  <link rel="apple-touch-icon" href="/super-push/assets/apple-icon-180-DQsBwdUp.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2048-2732-CMM58zqk.jpg"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2732-2048-DCBQ_x6v.jpg"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1668-2388-Dhe7JzFJ.jpg"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2388-1668-CeCkrqkQ.jpg"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1536-2048-BTnTNchi.jpg"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2048-1536-CZNfx3sg.jpg"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1488-2266-DpE98FQj.jpg"
+    media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2266-1488-BddJbScA.jpg"
+    media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1640-2360-DTJagiCf.jpg"
+    media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2360-1640-DlfNQG73.jpg"
+    media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1668-2224-g7qbaeK-.jpg"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2224-1668-kvUm4FG8.jpg"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1620-2160-DKyjUTre.jpg"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2160-1620-Ce4G-t9T.jpg"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1290-2796-Dcp6UMvv.jpg"
+    media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2796-1290-X3ixYJga.jpg"
+    media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1179-2556-1oTMzTGQ.jpg"
+    media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2556-1179-DCDaHAbU.jpg"
+    media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1284-2778-BPtas0Jr.jpg"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2778-1284-DNYEuQn-.jpg"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1170-2532-CXD2sMMa.jpg"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2532-1170-CW9MWK4X.jpg"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1125-2436-CbZ_YPEJ.jpg"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2436-1125-BVlSR4Uq.jpg"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1242-2688-D29Bssef.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2688-1242-Dom9JWR3.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-828-1792-BrOcphpj.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1792-828-DEfMQaup.jpg"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1242-2208-R2bw5j3o.jpg"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-2208-1242-DdbZQLg7.jpg"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-750-1334-DOzt4ztf.jpg"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1334-750-9xbaAHnC.jpg"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-640-1136-DGGsj00S.jpg"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/super-push/assets/apple-splash-1136-640-C0qQH8lZ.jpg"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <script type="module" crossorigin src="/super-push/assets/index-GdU3qJUI.js"></script>
+  <link rel="stylesheet" crossorigin href="/super-push/assets/index-BMTRAcdn.css">
+<link rel="manifest" href="/super-push/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/super-push/registerSW.js"></script></head>
+
+<body>
+  <div id="app"></div>
+</body>
+
 </html>
