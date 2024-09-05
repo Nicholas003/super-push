@@ -50,7 +50,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 const login = () => {
 
 
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=Ov23liWi7ycK7kssllDs&redirect_uri=${window.location.origin}`
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=Ov23liWi7ycK7kssllDs&redirect_uri=${window.location.href}`
 
 
 }
