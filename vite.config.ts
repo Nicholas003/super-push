@@ -24,9 +24,28 @@ export default defineConfig(({mode})=>{
           theme_color: '#ffffff',
           icons: [
             {
-              src: basePath+'icon.png',
-              sizes: '192x192',
-              type: 'image/png'
+              "src": basePath+"start-img/manifest-icon-192.maskable.png",
+              "sizes": "192x192",
+              "type": "image/png",
+              "purpose": "any"
+            },
+            {
+              "src": basePath+"start-img/manifest-icon-192.maskable.png",
+              "sizes": "192x192",
+              "type": "image/png",
+              "purpose": "maskable"
+            },
+            {
+              "src": basePath+"start-img/manifest-icon-512.maskable.png",
+              "sizes": "512x512",
+              "type": "image/png",
+              "purpose": "any"
+            },
+            {
+              "src": basePath+"start-img/manifest-icon-512.maskable.png",
+              "sizes": "512x512",
+              "type": "image/png",
+              "purpose": "maskable"
             }
           ]
         },
