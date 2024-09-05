@@ -7,7 +7,7 @@ export function requestNotificationPermission() {
 
             if (status === 'granted') {
                 // subscribeToPushNotifications();
-                navigator.serviceWorker.register( import.meta.env.VITE_BASE_PATH+'service-worker.js')
+                navigator.serviceWorker.register( './service-worker.js')
                 return true
             }
         });
