@@ -3,7 +3,7 @@
 
         {{ userInfo }}
         <div class="login" @click="login">
-            登录
+            登录--
         </div>
 
         <div class="login" @click="pushPermission">
@@ -57,9 +57,7 @@ const login = () => {
 
 const pushPermission = () => {
 
-    requestNotificationPermission().then(() => {
-        return subscribeToPushNotifications()
-    }).then(res => {
+    subscribeToPushNotifications().then(res => {
         console.log('3', res)
         addPushInfo(res)
     })

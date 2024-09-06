@@ -50,6 +50,9 @@ export default defineConfig(({mode})=>{
           ]
         },
         injectRegister:'script',
+        workbox:{
+          importScripts:['./service-worker.js']
+        },
         // devOptions: {
         //   enabled: true
         //   /* other options */

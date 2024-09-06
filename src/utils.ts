@@ -7,7 +7,7 @@ export function requestNotificationPermission() {
 
             if (status === 'granted') {
                 // subscribeToPushNotifications();
-                navigator.serviceWorker.register( './service-worker.js')
+                
                 return true
             }
         });
