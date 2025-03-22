@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperPush</title>
+  <meta name="theme-color">
+  <link rel="apple-touch-icon" href="/start-img/apple-icon-180.png">
+  <script src="/localforage.min.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <% appleDeviceSpecsForLaunchImages.forEach(function(spec) { %>
+    <link rel="apple-touch-startup-image"
+      href="/start-img/apple-splash-<%= spec.portrait.width %>-<%= spec.portrait.height %>.jpg"
+      media="(device-width: <%= spec.portrait.width / spec.scaleFactor %>px) and (device-height: <%= spec.portrait.height / spec.scaleFactor %>px) and (-webkit-device-pixel-ratio: <%= spec.scaleFactor %>) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image"
+      href="/start-img/apple-splash-dark-<%= spec.portrait.width %>-<%= spec.portrait.height %>.jpg"
+      media="(prefers-color-scheme: dark) and (device-width: <%= spec.portrait.width / spec.scaleFactor %>px) and (device-height: <%= spec.portrait.height / spec.scaleFactor %>px) and (-webkit-device-pixel-ratio: <%= spec.scaleFactor %>) and (orientation: portrait)" />
+    <% }); %>
+</head>
+
+<body class="@dark:bg-[#303030]">
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
