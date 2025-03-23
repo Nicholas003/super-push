@@ -64,13 +64,24 @@ export default defineConfig(({ mode }) => {
         injectRegister: 'script',
         workbox: {
           importScripts: ['./service-worker.js'],
+          navigateFallbackDenylist: [/^\/api/],
           runtimeCaching: [
             {
-              // 严格匹配 /api 及其子路径（忽略大小写）
-              urlPattern: /^\/api\//i, // 或 /\/api\/.*/i
-              handler: "NetworkOnly",
+              urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
+              handler: 'NetworkOnly', // 始终从网络获取API请求
+              options: {
+                cacheName: 'api-cache',
+                networkTimeoutSeconds: 10 // 超时时间
+              }
             },
-          ],
+            {
+              urlPattern: ({ request }) => request.destination === 'document',
+              handler: 'NetworkFirst', // 页面使用网络优先
+              options: {
+                cacheName: 'html-cache'
+              }
+            }
+          ]
 
         },
         devOptions: {
