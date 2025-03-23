@@ -63,7 +63,15 @@ export default defineConfig(({ mode }) => {
         },
         injectRegister: 'script',
         workbox: {
-          importScripts: ['./service-worker.js']
+          importScripts: ['./service-worker.js'],
+          runtimeCaching: [
+            {
+              // 严格匹配 /api 及其子路径（忽略大小写）
+              urlPattern: /^\/api\//i, // 或 /\/api\/.*/i
+              handler: "NetworkOnly",
+            },
+          ],
+
         },
         devOptions: {
           enabled: true
