@@ -9,6 +9,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import UnoCSS from 'unocss/vite'
 import { appleDeviceSpecsForLaunchImages } from 'pwa-asset-generator'
 import { cloudflare } from "@cloudflare/vite-plugin"
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
@@ -22,8 +23,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       vueJsx(),
-
-      // vueDevTools(),
+      vueDevTools(),
       UnoCSS(),
       VitePWA({
         manifest: {

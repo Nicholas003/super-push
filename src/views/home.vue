@@ -26,7 +26,7 @@
                 <div class=" block sm:hidden mt-[20px] cursor-pointer outline-none" @click="handleOpen">
                     查看推送历史
                 </div>
-                <div class="mt-[20px]">
+                <div class="mt-[20px]" @click="doc">
                     查看文档
                 </div>
             </div>
@@ -63,9 +63,13 @@ import { getCurrentBrowserFingerPrint } from "@rajesh896/broprint.js";
 import { useAsyncState, useFetch } from '@vueuse/core';
 import { computed, onMounted, ref } from 'vue';
 import Fingerprint2 from 'fingerprintjs2';
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 
-
+const doc = () => {
+    router.push('/doc')
+}
 // 
 
 const [showHistory, openHistory, closeHistory] = useSwitch(false)
@@ -91,7 +95,7 @@ const { state: baseInfo, isLoading: loading } = useAsyncState(() => {
         })
     }).then(visitorId => {
         return fetch(
-            `/env/publicKey?token=${visitorId}`
+            `/api/env/publicKey?token=${visitorId}`
         )
             .then(res => res.json())
             .then(res => ({ ...res.data, token: visitorId }))
@@ -137,7 +141,7 @@ const { execute: pushPermission, error, isLoading } = useAsyncState(() => {
     return subscribeToPushNotifications(baseInfo.value?.publicKey!).then(res => {
         pushState.value = Notification.permission
         return fetch(
-            `/subscribe`,
+            `/api/subscribe`,
             {
                 method: 'POST',
                 headers: {
