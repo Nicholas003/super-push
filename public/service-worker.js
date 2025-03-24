@@ -1,20 +1,12 @@
 
 importScripts('./localforage.min.js')
 
-self.addEventListener('install', function (event) {
-
-  // self.skipWaiting();
-
-});
-
 const storageKey = 'pushList'
 
 localforage.setDriver([localforage.WEBSQL, localforage.INDEXEDDB])
 
 self.addEventListener('push', function (event) {
-  console.log('222', event, clients)
   const data = event.data.json();
-  // localforage.setItem('pushList',data)
   localforage.getItem(storageKey).then((res) => {
     console.log('res', res)
     const list = res || []
@@ -30,12 +22,6 @@ self.addEventListener('push', function (event) {
       })
     })
 
-
-
-
-  // console.log('push',data)
-  // self.registration.active.postMessage(data);
-  // clients.active.postMessage(data);
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
@@ -63,14 +49,7 @@ self.addEventListener('notificationclick', function (event) {
         } else {
           clients.openWindow("/")
         }
-        // for (const client of clientList) {
-        //   console.log(client)
-        //   if (client.url === "/" && "focus" in client) return client.focus();
-        // }
-        // if (clients.openWindow) return clients.openWindow("/");
       }),
   );
-
-  // clients.openWindow('/');
 
 })

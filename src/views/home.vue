@@ -26,7 +26,7 @@
                 <div class=" block sm:hidden mt-[20px] cursor-pointer outline-none" @click="handleOpen">
                     查看推送历史
                 </div>
-                <div class="mt-[20px]" @click="doc">
+                <div class="mt-[20px] cursor-pointer" @click="doc">
                     查看文档
                 </div>
             </div>

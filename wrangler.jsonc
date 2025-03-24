@@ -14,10 +14,6 @@
 	"observability": {
 		"enabled": true
 	},
-	"vars": {
-		"NODE_VERSION": "20.18.3",
-		"YARN_VERSION": "1"
-	},
 	"d1_databases": [
 		{
 			"binding": "DB",

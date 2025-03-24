@@ -65,24 +65,6 @@ export default defineConfig(({ mode }) => {
         workbox: {
           importScripts: ['./service-worker.js'],
           navigateFallbackDenylist: [/^\/api/],
-          runtimeCaching: [
-            {
-              urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
-              handler: 'NetworkOnly', // 始终从网络获取API请求
-              options: {
-                cacheName: 'api-cache',
-                networkTimeoutSeconds: 10 // 超时时间
-              }
-            },
-            {
-              urlPattern: ({ request }) => request.destination === 'document',
-              handler: 'NetworkFirst', // 页面使用网络优先
-              options: {
-                cacheName: 'html-cache'
-              }
-            }
-          ]
-
         },
         devOptions: {
           enabled: true
