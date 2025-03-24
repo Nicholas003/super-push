@@ -46,10 +46,6 @@ app.get("/env/publicKey", async (c) => {
 
 app.post("/subscribe", async (c) => {
     const { subscription, token } = await c.req.json();
-    // const subscriptionData = await c.env.DB.prepare(
-    // 	"INSERT INTO subscription (token, subscription) VALUES (?, ?)",
-    // )
-
     //查询是否存在 
     const subscriptionData = await c.env.DB.prepare(
         "SELECT * FROM subscription WHERE token = ?",
@@ -88,9 +84,10 @@ app.all("/push/:key", async (c) => {
 
     let requestData = c.req.query()
 
-    // const postData = await c.req.json()
     if (c.req.method === 'POST') {
-        const postData = await c.req.json()
+
+        const postData = JSON.parse(await c.req.text() || "{}")
+
         requestData = Object.assign({}, requestData, postData)
     }
 
@@ -102,11 +99,13 @@ app.all("/push/:key", async (c) => {
         .bind(c.req.param("key"))
         .first<{ token: string, subscription: string }>();
 
-    // return c.json({ subscription });
+    if (!subscriptionData) {
+        return c.json({ code: 400, message: 'Not Found' });
+    }
 
-    const subscriptionInfo = JSON.parse(subscriptionData!.subscription);
+    const subscriptionInfo = JSON.parse(subscriptionData!.subscription)
 
-    const pl = JSON.stringify({ title, body, icon, data });
+    const pl = JSON.stringify({ title, body, icon, data })
 
     const payload = await buildPushPayload({
         data: pl,

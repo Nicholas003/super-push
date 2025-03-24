@@ -23,11 +23,16 @@
                         {{ error }}
                     </div>
                 </div>
-                <div class=" block sm:hidden mt-[20px] cursor-pointer outline-none" @click="handleOpen">
+                <div class="block sm:hidden mt-[20px] cursor-pointer outline-none" @click="handleOpen">
                     查看推送历史
                 </div>
-                <div class="mt-[20px] cursor-pointer" @click="doc">
-                    查看文档
+                <div class="mt-[20px] cursor-pointer underline" @click="doc">
+                    使用方法
+                </div>
+                <div @click="github">
+                    <img class="w-[90px] mt-[20px] cursor-pointer"
+                        src="https://img.shields.io/badge/SuperPush-%23464D55?style=flat&logo=github&link=https://github.com/Nicholas003/super-push"
+                        alt="">
                 </div>
             </div>
 
@@ -68,7 +73,12 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const doc = () => {
-    router.push('/doc')
+    router.push({
+        path: '/doc',
+        query: {
+            pushKey: baseInfo.value?.pushKey,
+        }
+    })
 }
 // 
 
@@ -77,6 +87,10 @@ const [showHistory, openHistory, closeHistory] = useSwitch(false)
 const handleOpen = () => {
     getHistoryList()
     openHistory()
+}
+
+const github = () => {
+    window.open('https://github.com/Nicholas003/super-push', '_blank', 'noreferrer');
 }
 
 const { state: baseInfo, isLoading: loading } = useAsyncState(() => {
