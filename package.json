@@ -21,6 +21,7 @@
     "@vueuse/core": "^13.0.0",
     "axios": "^1.7.4",
     "cross-env": "^7.0.3",
+    "dayjs": "^1.11.13",
     "fingerprintjs2": "^2.1.4",
     "hono": "^4.7.5",
     "pinia": "^2.1.7",

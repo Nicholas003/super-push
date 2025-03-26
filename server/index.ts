@@ -4,7 +4,7 @@ import { env } from 'hono/adapter'
 import { buildPushPayload } from '@block65/webcrypto-web-push';
 import { cors } from 'hono/cors'
 import { md5 } from "hono/utils/crypto";
-
+import dayjs from "dayjs";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -97,10 +97,20 @@ app.all("/push/:key", async (c) => {
         "SELECT * FROM subscription WHERE key = ?",
     )
         .bind(c.req.param("key"))
-        .first<{ token: string, subscription: string }>();
+        .first<{ token: string, subscription: string }>()
 
     if (!subscriptionData) {
         return c.json({ code: 400, message: 'Not Found' });
+    }
+
+    await c.env.DB.prepare(
+        "INSERT INTO history (info, push_time, token) VALUES (?,?,?)",
+    )
+        .bind(JSON.stringify(requestData), dayjs().format('YYYY-MM-DD HH:mm:ss'),subscriptionData.token)
+        .run();
+    
+    if (!subscriptionData!.subscription) {
+        return c.json({ code: 500, message: 'User Not Subscription' });
     }
 
     const subscriptionInfo = JSON.parse(subscriptionData!.subscription)
