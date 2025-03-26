@@ -51,8 +51,8 @@
                 </div>
             </div>
             <div class=" flex-1 overflow-auto mt-[10px] mx-[20px] flex flex-col">
-                <div class="border-b mb-[10px]" v-for="item in historyList">
-                    {{ item }}
+                <div class=" mb-[10px]  border-solid rounded-lg py-[10px] border-gray-4" v-for="item in historyList">
+                    <ShowJSON :json="item"/>
                 </div>
                 <div v-if="!historyList.length" class="flex m-auto">
                     暂无数据
@@ -62,13 +62,44 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { bus, requestNotificationPermission, subscribeToPushNotifications, useSwitch } from '@/utils'
 import { getCurrentBrowserFingerPrint } from "@rajesh896/broprint.js";
 import { useAsyncState, useFetch } from '@vueuse/core';
 import { computed, onMounted, ref } from 'vue';
 import Fingerprint2 from 'fingerprintjs2';
 import { useRouter } from 'vue-router'
+
+const ShowJSON = ({json}) => {
+    console.log(json)
+    // return JSON.stringify(json, null, 2)
+    // 递归显示json
+    // return (
+    //     <div>你好</div>
+    // )
+    return (
+        <div class="pl-[10px]">
+            {
+                Object.keys(json).map(key => {
+                    const value = json[key]
+                    if (typeof value === 'object') {
+                        return (
+                            <div>
+                                {key}: <ShowJSON json={value}/>
+                            </div>
+                        )
+                    }
+                    return (
+                        <div>
+                            {key}: {value}
+                        </div>
+                    )
+                })
+            }
+        </div>
+    )
+}
+
 
 const router = useRouter()
 
