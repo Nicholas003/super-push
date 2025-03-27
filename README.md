@@ -1,7 +1,9 @@
 
-#### 基于vue3+cloudflare workers+web-push的一个开源私有的推送应用
+# 基于vue3+cloudflare workers+web-push的一个开源私有的推送应用
 
-![WechatIMG2413.png](https://wp-cdn.4ce.cn/v2/qDBT3i6.png)
+<a href="#">
+  <img src="https://socialify.git.ci/Nicholas003/super-push/image?font=Inter&language=1&logo=https%3A%2F%2Fwp-cdn.4ce.cn%2Fv2%2FL5Hcdwr.png&name=1&owner=1&pattern=Floating+Cogs&stargazers=1&theme=Auto"/>
+</a>
 
 #### 安装教程
 ``` bash
@@ -86,3 +88,5 @@ get或者post请求都可以
 ---
 
 如果项目对你有帮助，欢迎star和fork
+
+![趋势](https://starchart.cc/Nicholas003/super-push.svg)
